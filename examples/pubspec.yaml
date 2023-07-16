@@ -1,0 +1,59 @@
+name: wt_widgetbook_examples
+description: Example for the wt_widgetbook library
+publish_to: 'none' # To publish to pub.dev, remove this line
+version: 1.0.0+1
+
+environment:
+  sdk: '>=3.0.3 <4.0.0'
+
+# Scripts to be run with rps
+scripts:
+  init: flutter pub get
+  clean: flutter clean
+  refresh: flutter clean; flutter pub get
+  test: flutter test
+  analise: flutter analyze
+  freezed:
+    build: dart run build_runner build --delete-conflicting-outputs
+  web:
+    build: flutter build web --release --output ../docs --base-href="/docs/"
+    serve: (cd ..; python3 -m http.server 8000)
+    view: open http://localhost:8000/docs
+
+dependencies:
+  cupertino_icons:
+  firebase_ui_auth:
+  flutter:
+    sdk: flutter
+  flutter_riverpod:
+  font_awesome_flutter:
+  freezed:
+  freezed_annotation:
+  json_annotation: "^4.8.1"
+  json_serializable:
+  widgetbook: ^3.1.0
+  wt_app_scaffold:
+    git:
+      url: https://github.com/tmcmaster/wt_app_scaffold.git
+  wt_firepod:
+    git:
+      url: https://github.com/tmcmaster/wt_firepod.git
+  wt_logging:
+    git:
+      url: https://github.com/tmcmaster/wt_logging.git
+  wt_models:
+    git:
+      url: https://github.com/tmcmaster/wt_models.git
+  wt_widgetbook:
+    path: ..
+
+dev_dependencies:
+  build_runner:
+  flutter_lints:
+  flutter_test:
+    sdk: flutter
+
+flutter:
+  uses-material-design: true
+  assets:
+    - assets/
