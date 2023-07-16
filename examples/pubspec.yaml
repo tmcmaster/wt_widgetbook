@@ -16,9 +16,11 @@ scripts:
   freezed:
     build: dart run build_runner build --delete-conflicting-outputs
   web:
-    build: flutter build web --release --output ../docs --base-href="/docs/"
-    serve: (cd ..; python3 -m http.server 8000)
-    view: open http://localhost:8000/docs
+    local_build: flutter build web --release --output ../docs --base-href="/docs/";
+    local_serve: (cd ..; open http://localhost:8000/docs; python3 -m http.server 8000)
+    local_view: open http://localhost:8000/docs;
+    build: flutter build web --release --output ../docs --base-href="/wt_widgetbook/"
+    view: open https://tmcmaster.github.io/wt_widgetbook/
 
 dependencies:
   cupertino_icons:
