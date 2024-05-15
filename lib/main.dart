@@ -6,9 +6,12 @@ void main() {
   runApp(HotReloadWidgetBook(
     builders: {
       'Applications': [
-        WidgetbookPackage(name: 'My Package', children: [
-          WidgetbookComponent(name: 'My Component', useCases: []),
-        ]),
+        WidgetbookPackage(
+          name: 'My Package',
+          children: [
+            WidgetbookComponent(name: 'My Component', useCases: []),
+          ],
+        ),
         WidgetbookPackage(name: 'My Package', children: []),
       ],
       'Widgets': {
@@ -100,9 +103,12 @@ class HotReloadWidgetBook extends StatelessWidget {
   List<WidgetbookCategory> createWidgetbookCategory(Map<String, dynamic> builders) {
     return builders.entries.map((e) {
       if (e.value is WidgetbookComponentBuilder) {
-        return WidgetbookCategory(name: e.key, children: [
-          e.value.build(),
-        ]);
+        return WidgetbookCategory(
+          name: e.key,
+          children: [
+            e.value.build(),
+          ],
+        );
       } else if (e.value is List<WidgetbookComponentBuilder>) {
         List<WidgetbookComponentBuilder> list = e.value;
         return WidgetbookCategory(
